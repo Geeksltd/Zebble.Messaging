@@ -1,10 +1,10 @@
 ﻿namespace Zebble.Device
 {
+    using Foundation;
+    using MessageUI;
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Foundation;
-    using MessageUI;
     using UIKit;
 
     partial class Messaging

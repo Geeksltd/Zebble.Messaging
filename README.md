@@ -5,12 +5,11 @@
 
 ![logo]
 
-A Zebble plugin to make external communications in Zebble applications.
+A plugin for sending SMS, Emails and making calls in Zebble applications.
 
 
 [![NuGet](https://img.shields.io/nuget/v/Zebble.Messaging.svg?label=NuGet)](https://www.nuget.org/packages/Zebble.Messaging/)
 
-> With this plugin you can make call or send a message and email on Android, IOS and UWP platforms.
 
 <br>
 

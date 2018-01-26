@@ -1,7 +1,5 @@
 ﻿namespace Zebble.Device
 {
-    using System;
-    using System.Threading.Tasks;
     using Windows.ApplicationModel.Calls;
     using Windows.ApplicationModel.Chat;
     using Windows.ApplicationModel.Email;

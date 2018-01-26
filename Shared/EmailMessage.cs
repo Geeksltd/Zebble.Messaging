@@ -1,6 +1,5 @@
 ﻿namespace Zebble.Device
 {
-    using System;
     using System.Collections.Generic;
 
     public partial class EmailMessage
