@@ -71,19 +71,5 @@
                 await Task.CompletedTask;
             });
         }
-
-        static Task DoSendSMS(SMS message)
-        {
-            return Thread.UI.Run(async () =>
-            {
-                foreach (var receiver in message.Receiver)
-                {
-                    var smsTo = NSUrl.FromString("sms:" + receiver + "");
-                    UIApplication.SharedApplication.OpenUrl(smsTo);
-                }
-
-                await Task.CompletedTask;
-            });
-        }
     }
 }

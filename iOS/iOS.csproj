@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Messaging.cs" />
+    <Compile Include="SMSHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Zebble-LicenseAgreement.txt" />

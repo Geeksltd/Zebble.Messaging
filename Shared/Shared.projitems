@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messaging.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PhoneCallTask.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SMS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SMSHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SmsTask.cs" />
   </ItemGroup>
 </Project>

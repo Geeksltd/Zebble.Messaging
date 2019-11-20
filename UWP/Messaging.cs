@@ -3,7 +3,6 @@
     using System;
     using System.Threading.Tasks;
     using Windows.ApplicationModel.Calls;
-    using Windows.ApplicationModel.Chat;
     using Windows.ApplicationModel.Email;
     using Windows.Storage;
     using Windows.Storage.Streams;
@@ -38,16 +37,6 @@
         {
             PhoneCallManager.ShowPhoneCallUI(number, name.OrEmpty());
             return Task.CompletedTask;
-        }
-
-        static async Task DoSendSMS(SMS message)
-        {
-            var sms = new ChatMessage { Body = message.MessageText, MessageKind = ChatMessageKind.Standard, MessageOperatorKind = ChatMessageOperatorKind.Sms };
-
-            foreach (var receiver in message.Receiver)
-                sms.Recipients.Add(receiver);
-
-            await ChatMessageManager.ShowComposeSmsMessageAsync(sms);
         }
     }
 }

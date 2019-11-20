@@ -85,19 +85,5 @@
 
             return Task.CompletedTask;
         }
-
-        static Task DoSendSMS(SMS message)
-        {
-            foreach (var receiver in message.Receiver)
-            {
-                var smsUri = Android.Net.Uri.Parse("smsto:" + PhoneNumberUtils.FormatNumber(receiver) + "");
-
-                var smsIntent = new Intent(Intent.ActionSendto, smsUri);
-                smsIntent.PutExtra("sms_body", message.MessageText);
-                ((Activity)UIRuntime.NativeRootScreen).StartActivity(smsIntent);
-            }
-
-            return Task.CompletedTask;
-        }
     }
 }

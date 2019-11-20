@@ -67,9 +67,10 @@
             }
             else
             {
-                try { await DoSendSMS(message); }
+                try { await SMSHelper.ComposeAsync(message); }
                 catch (Exception ex) { await errorAction.Apply("Failed to send SMS: " + ex.Message); }
             }
         }
+
     }
 }
