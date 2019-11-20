@@ -8,18 +8,21 @@ namespace Zebble.Device
         public static Task ComposeAsync()
             => ComposeAsync(null);
 
-        public static Task ComposeAsync(SMS message)
+        public static async Task ComposeAsync(SMS message)
         {
-            if (!IsComposeSupported)
-                throw new System.Exception("Sms is not supported");
+            await Thread.UI.Run(() =>
+            {
+                if (!IsComposeSupported)
+                    throw new System.Exception("Sms is not supported");
 
-            if (message == null)
-                message = new SMS();
+                if (message == null)
+                    message = new SMS();
 
-            if (message?.Receiver == null)
-                message.Receiver = new List<string>();
+                if (message?.Receiver == null)
+                    message.Receiver = new List<string>();
 
-            return PlatformComposeAsync(message);
+                return PlatformComposeAsync(message);
+            });
         }
     }
 }
