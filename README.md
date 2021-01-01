@@ -1,4 +1,4 @@
-[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.Messaging/master/Shared/NuGet/Icon.png "Zebble.Messaging"
+﻿[logo]: https://raw.githubusercontent.com/Geeksltd/Zebble.Messaging/master/icon.png "Zebble.Messaging"
 
 
 ## Zebble.Messaging

@@ -10,6 +10,7 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+    using Olive;
 
     partial class Messaging
     {
@@ -24,7 +25,7 @@
             }
         }
 
-        public static bool CanMakePhoneCall => (new Intent(Intent.ActionDial)).ResolveActivity(Application.Context.PackageManager) != null;
+        public static bool CanMakePhoneCall => new Intent(Intent.ActionDial).ResolveActivity(Application.Context.PackageManager) != null;
 
         public static bool CanSendSMS => true;
         public static bool CanSendEmailAttachments => true;
@@ -59,8 +60,8 @@
 
                     if (a.FilePath.IsUrl())
                     {
-                        if (IO.ExternalStorageFolder.LacksValue())
-                            throw new Exception("File attachement is not supported on your device. You need to add a SD card to enable this feature.");
+                        if (IO.ExternalStorageFolder.IsEmpty())
+                            throw new Exception("File attachment is not supported on your device. You need to add a SD card to enable this feature.");
 
                         path = Path.Combine(IO.ExternalStorageFolder, a.FileName);
                         var downloaded = await Network.Download(new Uri(a.FilePath), path, OnError.Alert);
@@ -69,11 +70,11 @@
                     uris.Add(Android.Net.Uri.Parse("file://" + path));
                 });
 
-                if (uris.Count > 1) emailIntent.PutParcelableArrayListExtra(Intent.ExtraStream, uris);
+                if (uris.HasMany()) emailIntent.PutParcelableArrayListExtra(Intent.ExtraStream, uris);
                 else emailIntent.PutExtra(Intent.ExtraStream, uris[0]);
             }
 
-              ((Activity)UIRuntime.NativeRootScreen).StartActivity(emailIntent);
+            ((Activity)UIRuntime.NativeRootScreen).StartActivity(emailIntent);
 
             return Task.CompletedTask;
         }

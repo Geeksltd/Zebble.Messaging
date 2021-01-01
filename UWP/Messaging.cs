@@ -6,6 +6,7 @@
     using Windows.ApplicationModel.Email;
     using Windows.Storage;
     using Windows.Storage.Streams;
+    using Olive;
 
     partial class Messaging
     {
